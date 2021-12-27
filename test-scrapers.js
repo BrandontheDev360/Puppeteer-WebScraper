@@ -15,13 +15,12 @@ async function start() {
     const animeDesc = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".detail")).map(x => x.textContent)
     })
+    await fs.writeFile('animelist.txt', animeDesc.join('\r\n'))
 
     // Anime Ranking Text File
     const animeRanking = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".ranking-list")).map(x => x.textContent )
     })
-
-    await fs.writeFile('animelist.txt', animeDesc.join('\r\n'))
     await fs.writeFile('animeranking.txt', animeRanking.join('\r\n'))
 
     // Anime Pics Download Pics got it to work sort of downloads 9 pics
