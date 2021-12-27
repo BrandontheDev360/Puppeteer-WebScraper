@@ -33,6 +33,11 @@ async function start() {
         await fs.writeFile(`${animePic.split("=").pop()}.png`, await imagepage.buffer())
     }
 
+    // const animeLinks = await page.evaluate(() => {
+    //     return Array.from(document.querySelectorAll(".icon-watch2")).map(x => x.href)
+    // })
+    // await fs.writeFile('animelinks.text', animeLinks.join('\r\n'))
+
     await browser.close()
 }
 
